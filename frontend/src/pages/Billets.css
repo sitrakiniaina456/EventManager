@@ -1,0 +1,812 @@
+
+
+
+.billets-page {
+    width: 100%;
+    min-width: 0;
+    padding: 28px;
+    color: #172033;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.billets-page *,
+.billets-page *::before,
+.billets-page *::after {
+    box-sizing: border-box;
+}
+
+/* En-tête */
+
+.billets-page .billets-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.billets-page .billets-hero > div {
+    min-width: 0;
+}
+
+.billets-page .billets-eyebrow {
+    display: inline-block;
+    margin-bottom: 9px;
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.1px;
+    line-height: 1.5;
+}
+
+.billets-page .billets-hero h1 {
+    margin: 0 0 10px;
+    color: #172033;
+    font-size: clamp(25px, 3vw, 34px);
+    font-weight: 750;
+    line-height: 1.2;
+    letter-spacing: -0.8px;
+}
+
+.billets-page .billets-hero p {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* Boutons */
+
+.billets-page .billets-primary-button,
+.billets-page .billets-secondary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.4;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.billets-page .billets-primary-button {
+    flex-shrink: 0;
+    border: 1px solid #2563eb;
+    background: #2563eb;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgb(37 99 235 / 16%);
+}
+
+.billets-page .billets-primary-button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    border-color: #1d4ed8;
+    background: #1d4ed8;
+    box-shadow: 0 6px 15px rgb(37 99 235 / 22%);
+}
+
+.billets-page .billets-secondary-button {
+    border: 1px solid #dbe3ef;
+    background: #ffffff;
+    color: #334155;
+}
+
+.billets-page .billets-secondary-button:hover:not(:disabled) {
+    border-color: #93b4f7;
+    background: #f8faff;
+    color: #1d4ed8;
+}
+
+.billets-page button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Messages de confirmation et d'erreur */
+
+.billets-page .billets-alert {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 20px;
+    padding: 14px 16px;
+    border: 1px solid transparent;
+    border-radius: 11px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.billets-page .billets-alert p {
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.billets-page .billets-alert.success {
+    border-color: #bbf7d0;
+    background: #f0fdf4;
+    color: #166534;
+}
+
+.billets-page .billets-alert.error {
+    border-color: #fecaca;
+    background: #fef2f2;
+    color: #b91c1c;
+}
+
+.billets-page .billets-alert button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 27px;
+    height: 27px;
+    flex-shrink: 0;
+    border: 0;
+    border-radius: 7px;
+    background: transparent;
+    color: inherit;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Cartes des statistiques */
+
+.billets-page .billets-overview {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.billets-page .billets-overview-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-width: 0;
+    min-height: 112px;
+    padding: 20px;
+    border: 1px solid #e5eaf2;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: 0 4px 14px rgb(15 23 42 / 3%);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.billets-page .billets-overview-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgb(15 23 42 / 7%);
+}
+
+.billets-page .billets-overview-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    border-radius: 13px;
+    background: #eff6ff;
+    color: #2563eb;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.billets-page .billets-overview-card:nth-child(2)
+.billets-overview-icon {
+    background: #ecfdf5;
+    color: #059669;
+}
+
+.billets-page .billets-overview-card:nth-child(3)
+.billets-overview-icon {
+    background: #fff7ed;
+    color: #ea580c;
+}
+
+.billets-page .billets-overview-card:nth-child(4)
+.billets-overview-icon {
+    background: #f5f3ff;
+    color: #7c3aed;
+    font-size: 15px;
+}
+
+.billets-page .billets-overview-card > div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.billets-page .billets-overview-card > div > span {
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.billets-page .billets-overview-card strong {
+    color: #172033;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+}
+
+/* Fenêtre du formulaire */
+
+.billets-page .billets-form-layout {
+    width: 100%;
+}
+
+.billets-page .billets-form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.billets-page .billets-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.billets-page .billets-field > label {
+    color: #334155;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.billets-page .billets-field input:not([type="checkbox"]),
+.billets-page .billets-field select,
+.billets-page .billets-search input,
+.billets-page .billets-filter select {
+    width: 100%;
+    min-width: 0;
+    min-height: 43px;
+    padding: 10px 12px;
+    border: 1px solid #dbe3ef;
+    border-radius: 9px;
+    outline: none;
+    background: #ffffff;
+    color: #172033;
+    font-family: inherit;
+    font-size: 13px;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.billets-page .billets-field input:focus,
+.billets-page .billets-field select:focus,
+.billets-page .billets-search input:focus,
+.billets-page .billets-filter select:focus {
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgb(59 130 246 / 12%);
+}
+
+.billets-page .billets-form-two-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.billets-page .billets-form-help {
+    margin: 0;
+    padding: 12px 14px;
+    border: 1px solid #fde68a;
+    border-radius: 9px;
+    background: #fffbeb;
+    color: #92400e;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.billets-page .billets-checkbox-field > label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.billets-page .billets-checkbox-field input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    accent-color: #2563eb;
+    cursor: pointer;
+}
+
+.billets-page .billets-form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid #e5eaf2;
+}
+
+.billets-page .billets-required-note {
+    color: #64748b;
+    font-size: 11px;
+}
+
+.billets-page .billets-form-footer > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Bloc de la liste */
+
+.billets-page .billets-list-panel {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #e5eaf2;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 4px 18px rgb(15 23 42 / 3%);
+}
+
+.billets-page .billets-list-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 24px 25px;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.billets-page .billets-list-heading > div {
+    min-width: 0;
+}
+
+.billets-page .billets-list-heading .billets-eyebrow {
+    margin-bottom: 7px;
+}
+
+.billets-page .billets-list-heading h2 {
+    margin: 0 0 8px;
+    color: #172033;
+    font-size: 23px;
+    font-weight: 750;
+    line-height: 1.3;
+    letter-spacing: -0.4px;
+}
+
+.billets-page .billets-list-heading p {
+    margin: 0;
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* Recherche et filtres */
+
+.billets-page .billets-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 18px 25px;
+    border-bottom: 1px solid #edf0f5;
+    background: #fbfcfe;
+}
+
+.billets-page .billets-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: min(100%, 360px);
+    min-width: 0;
+    padding-left: 12px;
+    border: 1px solid #dbe3ef;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #94a3b8;
+}
+
+.billets-page .billets-search:focus-within {
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgb(59 130 246 / 10%);
+}
+
+.billets-page .billets-search > span {
+    flex-shrink: 0;
+    font-size: 21px;
+    line-height: 1;
+}
+
+.billets-page .billets-search input {
+    min-height: 42px;
+    padding-left: 0;
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+}
+
+.billets-page .billets-search input:focus {
+    border: 0;
+    box-shadow: none;
+}
+
+.billets-page .billets-search input::placeholder {
+    color: #94a3b8;
+}
+
+.billets-page .billets-filter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.billets-page .billets-filter select {
+    width: auto;
+    min-width: 150px;
+    min-height: 40px;
+    padding: 8px 30px 8px 12px;
+}
+
+/* État vide et chargement */
+
+.billets-page .billets-state {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 270px;
+    padding: 40px 24px;
+    text-align: center;
+}
+
+.billets-page .billets-state-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+    margin-bottom: 18px;
+    border-radius: 18px;
+    background: #eff6ff;
+    color: #2563eb;
+    font-size: 28px;
+}
+
+.billets-page .billets-state h3 {
+    margin: 0 0 9px;
+    color: #172033;
+    font-size: 19px;
+    font-weight: 750;
+    line-height: 1.4;
+}
+
+.billets-page .billets-state p {
+    max-width: 420px;
+    margin: 0 0 22px;
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.billets-page .billets-state > strong {
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* Tableau */
+
+.billets-page .billets-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.billets-page .billets-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    white-space: normal;
+}
+
+.billets-page .billets-table thead {
+    background: #f8fafc;
+}
+
+.billets-page .billets-table th {
+    padding: 15px 17px;
+    border-bottom: 1px solid #e5eaf2;
+    color: #64748b;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.billets-page .billets-table td {
+    padding: 17px;
+    border-bottom: 1px solid #edf0f5;
+    color: #475569;
+    font-size: 12px;
+    line-height: 1.7;
+    vertical-align: middle;
+}
+
+.billets-page .billets-table tbody tr {
+    transition: background 0.15s ease;
+}
+
+.billets-page .billets-table tbody tr:hover {
+    background: #f8fbff;
+}
+
+.billets-page .billets-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.billets-page .billets-table td strong {
+    color: #172033;
+    font-weight: 750;
+    overflow-wrap: anywhere;
+}
+
+.billets-page .billet-number {
+    overflow-wrap: anywhere;
+}
+
+.billets-page .billet-participant,
+.billets-page .billet-event {
+    display: inline-block;
+    max-width: 240px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.billets-page .billet-price {
+    white-space: nowrap;
+}
+
+/* Badges de type */
+
+.billets-page .billets-type-badge,
+.billets-page .billets-validity {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 6px 10px;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.billets-page .billets-type-badge.standard {
+    border-color: #dbeafe;
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+
+.billets-page .billets-type-badge.vip {
+    border-color: #fde68a;
+    background: #fffbeb;
+    color: #b45309;
+}
+
+.billets-page .billets-validity.valid {
+    border-color: #bbf7d0;
+    background: #f0fdf4;
+    color: #15803d;
+}
+
+.billets-page .billets-validity.invalid {
+    border-color: #fecaca;
+    background: #fef2f2;
+    color: #b91c1c;
+}
+
+/* Actions du tableau */
+
+.billets-page .billets-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.billets-page .billets-edit-button,
+.billets-page .billets-delete-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+    background: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.billets-page .billets-edit-button {
+    color: #2563eb;
+}
+
+.billets-page .billets-edit-button:hover {
+    border-color: #bfdbfe;
+    background: #eff6ff;
+}
+
+.billets-page .billets-delete-button {
+    color: #dc2626;
+}
+
+.billets-page .billets-delete-button:hover {
+    border-color: #fecaca;
+    background: #fef2f2;
+}
+
+/* Icône de chargement éventuelle */
+
+.billets-page .billets-loading-icon {
+    margin-bottom: 12px;
+    font-size: 25px;
+}
+
+/* Tablettes */
+
+@media (max-width: 1100px) {
+    .billets-page {
+        padding: 22px;
+    }
+
+    .billets-page .billets-overview {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .billets-page .billets-overview-card {
+        padding: 17px;
+    }
+
+    .billets-page .billets-table {
+        min-width: 850px;
+    }
+}
+
+/* Téléphones */
+
+@media (max-width: 640px) {
+    .billets-page {
+        padding: 16px;
+    }
+
+    .billets-page .billets-hero {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 22px;
+    }
+
+    .billets-page .billets-hero h1 {
+        font-size: 27px;
+    }
+
+    .billets-page .billets-hero p {
+        font-size: 13px;
+    }
+
+    .billets-page .billets-hero .billets-primary-button {
+        width: 100%;
+    }
+
+    .billets-page .billets-overview {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-bottom: 22px;
+    }
+
+    .billets-page .billets-overview-card {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+        min-height: 140px;
+        padding: 15px;
+    }
+
+    .billets-page .billets-overview-icon {
+        width: 40px;
+        height: 40px;
+        flex-basis: 40px;
+        border-radius: 11px;
+        font-size: 17px;
+    }
+
+    .billets-page .billets-overview-card strong {
+        font-size: 21px;
+    }
+
+    .billets-page .billets-list-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+        padding: 19px 16px;
+    }
+
+    .billets-page .billets-list-heading h2 {
+        font-size: 21px;
+    }
+
+    .billets-page .billets-list-heading > button {
+        width: 100%;
+    }
+
+    .billets-page .billets-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+        padding: 15px 16px;
+    }
+
+    .billets-page .billets-search {
+        width: 100%;
+    }
+
+    .billets-page .billets-filter {
+        justify-content: space-between;
+    }
+
+    .billets-page .billets-filter select {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .billets-page .billets-form-two-columns {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .billets-page .billets-form-footer {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .billets-page .billets-form-footer > div {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .billets-page .billets-form-footer button {
+        width: 100%;
+    }
+
+    .billets-page .billets-state {
+        min-height: 240px;
+        padding: 30px 18px;
+    }
+
+    .billets-page .billets-table {
+        min-width: 850px;
+    }
+}

@@ -1,0 +1,417 @@
+
+/* =====================================================
+   EVENTMANAGER - FORMULAIRES PROFESSIONNELS
+   Style commun pour toutes les fenêtres
+===================================================== */
+
+:root {
+  --form-primary: #2563eb;
+  --form-primary-hover: #1d4ed8;
+  --form-text: #172033;
+  --form-muted: #64748b;
+  --form-border: #e2e8f0;
+  --form-background: #f8fafc;
+  --form-radius: 14px;
+}
+
+/* Empêcher les débordements */
+.form-modal,
+.form-modal * {
+  box-sizing: border-box;
+}
+
+/* Arrière-plan de la fenêtre modale */
+.form-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgb(15 23 42 / 58%);
+  backdrop-filter: blur(4px);
+  overflow-y: auto;
+}
+
+/* Contenu principal du formulaire */
+.form-modal-content {
+  width: 100%;
+  max-width: 900px;
+  max-height: calc(100vh - 48px);
+  max-height: calc(100dvh - 48px);
+  overflow-y: auto;
+  border: 1px solid rgb(255 255 255 / 70%);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 24px 80px rgb(15 23 42 / 24%);
+  animation: form-modal-appear 0.2s ease-out;
+}
+
+/* En-tête */
+.form-modal-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px 28px;
+  border-bottom: 1px solid var(--form-border);
+  background: #fff;
+}
+
+.form-modal-heading {
+  min-width: 0;
+}
+
+.form-modal-eyebrow {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--form-primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.form-modal-header h2 {
+  margin: 0;
+  color: var(--form-text);
+  font-size: 24px;
+  font-weight: 750;
+  line-height: 1.3;
+}
+
+.form-modal-header p {
+  margin: 8px 0 0;
+  color: var(--form-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Bouton fermer */
+.form-modal-close {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--form-border);
+  border-radius: 11px;
+  background: #fff;
+  color: #475569;
+  font-size: 25px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.form-modal-close:hover {
+  border-color: #fecaca;
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+/* Corps du formulaire */
+.form-modal-body {
+  padding: 28px;
+}
+
+.form-modal-section {
+  margin-bottom: 24px;
+}
+
+.form-modal-section-title {
+  margin: 0 0 16px;
+  color: var(--form-text);
+  font-size: 15px;
+  font-weight: 750;
+}
+
+/* Grille responsive */
+.form-modal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.form-modal-grid .form-field-full {
+  grid-column: 1 / -1;
+}
+
+/* Champs */
+.form-modal .form-field {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-modal .form-field label {
+  color: #334155;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.form-modal .form-field input,
+.form-modal .form-field select,
+.form-modal .form-field textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  padding: 12px 14px;
+  border: 1px solid #dbe3ee;
+  border-radius: 10px;
+  outline: none;
+  background: #fff;
+  color: var(--form-text);
+  font: inherit;
+  font-size: 14px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.form-modal .form-field textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.form-modal .form-field input::placeholder,
+.form-modal .form-field textarea::placeholder {
+  color: #94a3b8;
+}
+
+.form-modal .form-field input:focus,
+.form-modal .form-field select:focus,
+.form-modal .form-field textarea:focus {
+  border-color: var(--form-primary);
+  box-shadow: 0 0 0 4px rgb(37 99 235 / 10%);
+}
+
+.form-modal .form-field input:disabled,
+.form-modal .form-field select:disabled,
+.form-modal .form-field textarea:disabled {
+  cursor: not-allowed;
+  background: #f1f5f9;
+}
+
+/* Aide sous un champ */
+.form-field-help {
+  color: var(--form-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Case à cocher */
+.form-modal .form-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #334155;
+  font-size: 13px;
+}
+
+.form-modal .form-checkbox input {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--form-primary);
+}
+
+/* Messages de validation */
+.form-modal-alert {
+  margin: 0 28px 20px;
+  padding: 13px 15px;
+  border: 1px solid;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.form-modal-alert.error {
+  border-color: #fecaca;
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.form-modal-alert.success {
+  border-color: #bbf7d0;
+  background: #f0fdf4;
+  color: #166534;
+}
+
+/* Pied du formulaire */
+.form-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 28px;
+  border-top: 1px solid var(--form-border);
+  background: #f8fafc;
+}
+
+.form-modal-required {
+  color: var(--form-muted);
+  font-size: 12px;
+}
+
+.form-modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Boutons */
+.form-modal .form-button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.form-modal .form-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-modal .form-button-primary {
+  background: var(--form-primary);
+  color: #fff;
+}
+
+.form-modal .form-button-primary:hover:not(:disabled) {
+  background: var(--form-primary-hover);
+  box-shadow: 0 5px 14px rgb(37 99 235 / 20%);
+}
+
+.form-modal .form-button-secondary {
+  border-color: var(--form-border);
+  background: #fff;
+  color: #334155;
+}
+
+.form-modal .form-button-secondary:hover:not(:disabled) {
+  background: #f1f5f9;
+}
+
+/* Animation */
+@keyframes form-modal-appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Tablette et téléphone */
+@media (max-width: 768px) {
+  .form-modal {
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .form-modal-content {
+    max-height: calc(100vh - 24px);
+    max-height: calc(100dvh - 24px);
+    border-radius: 14px;
+  }
+
+  .form-modal-header {
+    padding: 20px;
+  }
+
+  .form-modal-header h2 {
+    font-size: 20px;
+  }
+
+  .form-modal-body {
+    padding: 20px;
+  }
+
+  .form-modal-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .form-modal-grid .form-field-full {
+    grid-column: auto;
+  }
+
+  .form-modal-alert {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  .form-modal-footer {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 18px 20px;
+  }
+
+  .form-modal-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form-modal .form-button {
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (max-width: 420px) {
+  .form-modal {
+    padding: 7px;
+  }
+
+  .form-modal-content {
+    max-height: calc(100vh - 14px);
+    max-height: calc(100dvh - 14px);
+  }
+
+  .form-modal-header,
+  .form-modal-body {
+    padding: 16px;
+  }
+
+  .form-modal-header h2 {
+    font-size: 18px;
+  }
+
+  .form-modal-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .form-modal-alert {
+    margin-right: 16px;
+    margin-left: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .form-modal-content,
+  .form-modal .form-field input,
+  .form-modal .form-field select,
+  .form-modal .form-field textarea {
+    animation: none;
+    transition: none;
+  }
+}
