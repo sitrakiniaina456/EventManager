@@ -63,14 +63,15 @@ function obtenirStatut(statut) {
 function obtenirImageUrl(image) {
   if (!image) return "";
 
-  if (image.startsWith("http")) return image;
+  if (/^https?:\/\//i.test(image)) return image;
 
-  const baseURL = api.defaults?.baseURL || "http://127.0.0.1:8000/";
+  const apiBaseURL =
+    import.meta.env.VITE_API_URL || "http://127.0.0.1:8000/api/";
 
-  const base = baseURL.replace(/\/+$/, "");
+  const serverBaseURL = apiBaseURL.replace(/\/api\/?$/, "");
   const chemin = image.startsWith("/") ? image : `/${image}`;
 
-  return `${base}${chemin}`;
+  return `${serverBaseURL}${chemin}`;
 }
 
 export default function Events() {
